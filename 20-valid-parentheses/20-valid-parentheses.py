@@ -18,7 +18,7 @@ class Solution:
         for p in s:
             if p in hash_close.values():
                 stack.append(p)
-            elif stack and stack[-1]==hash_close[p]:
+            elif stack and hash_close[p]==stack[-1]:
                 stack.pop()               
             else:
                 return False
