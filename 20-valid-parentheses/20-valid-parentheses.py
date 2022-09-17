@@ -7,11 +7,7 @@ class Solution:
                 stack.append(bracket)
             elif stack==[] or bracket != hashMa_close[stack.pop()]:
                 return False
-        return stack == []    
-   
-            
-            
-
+        return stack == []  
                 
                 
                 
