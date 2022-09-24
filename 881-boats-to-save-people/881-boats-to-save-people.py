@@ -5,9 +5,7 @@ class Solution:
         boat=0
         l,r=0,len(people)-1
         while l<=r :
-            remain=limit-people[r]
-           
-            if l <=r and remain>=people[l]:
+            if limit>=people[l]+people[r]:
                 l+=1
             r-=1
             boat+=1    
