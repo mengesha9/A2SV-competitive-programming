@@ -1,13 +1,16 @@
 class Solution:
-    def isValid(self,s):
+    def isValid(self, s: str) -> bool:
+         
+        brak={']':'[',')':'(','}':
+             '{'}
         stack=[]
-        hashMa_close={'(':')','[':']','{':'}'}
-        for bracket in s:
-            if bracket in hashMa_close.keys():
-                stack.append(bracket)
-            elif stack==[] or bracket != hashMa_close[stack.pop()]:
-                return False
-        return stack == []  
+
+        for c in s:
+            if stack and c in brak and  stack[-1]==brak[c]:
+                stack.pop()
+            else:
+                stack.append(c)
+        return True if not stack else False   
                 
                 
                 
