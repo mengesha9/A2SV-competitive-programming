@@ -7,8 +7,8 @@ class Solution:
         start=0
         end=len(people)-1
         while start<=end:
-            
-            if people[start]+people[end]<=limit:
+            diff=limit-people[end]
+            if people[start] <=diff:
                 start+=1
             numBoats+=1
             end-=1
