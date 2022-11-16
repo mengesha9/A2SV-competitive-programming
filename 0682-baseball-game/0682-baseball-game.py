@@ -19,7 +19,11 @@ class Solution:
                 arr.append(x+y)
             else:
                 arr.append(int(operations[i]))
-        return sum(arr)       
+        count=0       
+        for i in range(len(arr)):
+            count+=arr[i]
+        return count    
+            
                 
                 
         
