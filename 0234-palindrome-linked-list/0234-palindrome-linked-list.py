@@ -6,18 +6,41 @@
 class Solution:
     def isPalindrome(self, head: Optional[ListNode]) -> bool:
         
-        arr=[]
-        while head:
-            arr.append(head.val)
-            head=head.next
-        i=0
-        j=len(arr)-1
-        while i<j:
-            if arr[i] != arr[j]:
+        fast=slow=head
+#         finding the middle element
+
+        while fast and fast.next:
+            fast=fast.next.next
+            slow =slow.next
+#         lets reverse the second half linked list
+        prev=None
+        while slow:
+            temp=slow.next
+            
+            slow.next=prev
+            prev=slow
+            slow=temp
+#         lets test its palindromness
+        left,right=head,prev
+        while right:
+            if right.val != left.val:
                 return False
-            i+=1
-            j-=1
+            left=left.next
+            right=right.next
         return True
+
+        
+    
+
+
+        
+    
+    
+    
+    
+        
+        
+            
         
       
         
