@@ -16,7 +16,6 @@ class Solution:
 
                     arr.append(changed[i])
                     count[2*changed[i]]-=1
-                # if len(arr) ==len(changed)//2:
-                #     return arr   
+              
 
         return  arr if len(arr)==len(changed)//2 else []    
