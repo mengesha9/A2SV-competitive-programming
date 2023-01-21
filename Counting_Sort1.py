@@ -15,10 +15,13 @@ import sys
 
 def countingSort(arr):
     # Write your code here
-    frequncy=[0]*100
+    nums=[0]*(100)
     for i in range(len(arr)):
-        frequncy[arr[i]]+=1
-    return frequncy    
+        nums[arr[i]]+=1
+    return nums 
+    
+    
+    
 
 if __name__ == '__main__':
     fptr = open(os.environ['OUTPUT_PATH'], 'w')
