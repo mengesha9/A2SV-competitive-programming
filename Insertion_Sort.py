@@ -16,15 +16,15 @@ import sys
 
 def insertionSort1(n, arr):
     # Write your code here
-    key=arr[-1]
-    i=n-1
-    while arr[i-1]>key and i>0:
-        arr[i]=arr[i-1]
-        print(*arr)
-        i-=1
-    arr[i]=key
-    print(*arr)    
-         
+    for i in range(n-1,0,-1):
+        j=i
+        minvalue=arr[i]
+        while j >0 and arr[j]<arr[j-1]:
+            arr[j]=arr[j-1]
+            j-=1
+            print(*arr)
+        arr[j]=minvalue 
+    print(*arr) 
             
       
 
