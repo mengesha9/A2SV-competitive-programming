@@ -1,10 +1,10 @@
 def gradingStudents(grades):
-    arr=[]
-    for grade in grades:
-        if grade>=38:
-            mod5=grade%5
-            if mod5>=3:
-                grade+=(5-mod5)
-        arr.append(grade)
-        grade=grade +1
-    return arr 
+    # Write your code here
+    
+    for i in range(len(grades)):
+        if grades[i]>=38:
+            diff=5-grades[i]%5
+            if diff<3:
+                grades[i]=grades[i]+diff 
+             
+    return grades  
