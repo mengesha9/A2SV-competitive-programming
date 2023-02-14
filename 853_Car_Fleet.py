@@ -1,12 +1,25 @@
 class Solution:
-    def validateStackSequences(self, pushed: List[int], popped: List[int]) -> bool:
-        
-        
+    def carFleet(self, target: int, position: List[int], speed: List[int]) -> int:
+
+
         arr=[]
-        j=0
-        for i in range(len(pushed)):
-            arr.append(pushed[i])
-            while  arr and arr[-1]==popped[j] and j<len(popped):
-                arr.pop()
-                j+=1
-        return True if len(arr) ==0 else False
+        for i in range(len(position)):
+            time=(target-position[i])/speed[i]
+            arr.append([position[i],time])
+        print(arr)  
+        arr.sort()
+        print(arr)
+        stack=[] 
+      
+        arr=arr[::-1]
+        for i in range(len(arr)):
+            
+            if  not stack or (stack and stack[-1]<arr[i][1]):
+                stack.append(arr[i][1])
+            
+        return len(stack)        
+
+
+
+
+       
