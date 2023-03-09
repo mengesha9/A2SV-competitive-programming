@@ -1,18 +1,24 @@
 class Solution:
     def timeRequiredToBuy(self, tickets: List[int], k: int) -> int:
         
-        value=tickets[k]
-        count=0
-        while value:
-            
-            for i in range(len(tickets)):
-                if tickets[k] >0 and  tickets[i]>0:
-                    tickets[i]-=1
-                    count+=1
-            value-=1        
-        return count          
         
-        
-        
-        
+        ans = 0
+        time=tickets[k]
+        for i in range(len(tickets)):
+            if i <= k:
+                if tickets[i] < time:
+                    ans += tickets[i]
+                else:
+                    ans += time
+            else:
+                if tickets[i] < time:
+                    ans +=  tickets[i] 
+                else:
+                    ans += time - 1
+                    
+                
+        return ans       
+                
+                    
+                
         
