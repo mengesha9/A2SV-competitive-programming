@@ -74,14 +74,3 @@ class Solution:
         
         
         
-#         arr=[]
-#         node=root
-#         while node :
-#             arr.append(node.val)
-#             node=node.right
-#         print(arr)
-        
-#         return arr
-        
-
-        
