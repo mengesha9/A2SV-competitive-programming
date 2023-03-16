@@ -1,21 +1,16 @@
 class Solution:
     def subsets(self, nums: List[int]) -> List[List[int]]:
+        result = []
+        def sub(index, arr):
+            result.append(arr.copy())
 
-        self.nums = nums
-        self.res = []
-        self.helper(0, [], len(self.nums))
-        return self.res
+            if len(nums) == index:
+                return
+            for i in range(index,len(nums)):
+                arr.append(nums[i])
+                sub(i + 1, arr)
+                arr.pop()    
 
-    def helper(self, i, arr, n):
-
-        if i>= n:
-            self.res.append(arr.copy())
-            return 
-        arr.append(self.nums[i])
-        self.helper(i+1, arr , n)
+        sub(0,[])
+        return result     
         
-        arr.pop()
-        
-        self.helper(i+1, arr, n)
-
-
