@@ -11,5 +11,4 @@ class Solution:
             k -= 1
 
 
-        print(piles)
         return total
