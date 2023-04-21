@@ -1,22 +1,29 @@
 class Solution:
     def countSubTrees(self, n: int, edges: List[List[int]], labels: str) -> List[int]:
-        adj = defaultdict(set)
-        for u, v in edges:
-            adj[u].add(v)
-            adj[v].add(u)
 
-        ans = [0] * n
 
-        def dfs(node, parent):
-            count = defaultdict(int)
-            for child in adj[node]:
-                if child == parent:
-                    continue
-                for label, cnt in dfs(child, node).items():
-                    count[label] += cnt
-            count[labels[node]] += 1
-            ans[node] = count[labels[node]]
-            return count
+        dic = defaultdict(list)
+        for edge in edges:
+            dic[edge[0]].append(edge[1])
 
-        dfs(0, -1)
-        return ans
+
+
+        arr = [1]*n 
+
+        def dfs(value,new):
+            if new not in dic:
+                return 
+            
+            for k in dic[new]:
+                if labels[k] == labels[value] :
+                    arr[value] += 1
+               
+                dfs(value,k)
+                     
+                      
+
+        for k , v in dic.items():
+            dfs(k,k)
+           
+
+        return arr    
