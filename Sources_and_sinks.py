@@ -28,8 +28,6 @@ for i in range(len(source)):
     elif source[i]==-1 and sink[i]==1:
         si.append(i+1)   
 
-
-
 print(len(arr),end=" ")
 print(*arr)
 print(len(si),end=" ")
