@@ -1,13 +1,17 @@
 class Solution:
     def maxSatisfaction(self, satisfaction: List[int]) -> int:
+
         satisfaction.sort()
-        maxsat = -float("inf")
+        dp = {}
+        def dfs(ind,prev):
+            if ind >= len(satisfaction):
+                return 0
+            if (ind,prev) not in dp:
+                cook = satisfaction[ind]*prev + dfs(ind + 1, prev + 1)
+                notcook = dfs(ind + 1, prev)
 
-        for i in range(len(satisfaction)):
-            total = 0
-            for j in range(i, len(satisfaction)):
-                total += (j-i+1)*satisfaction[j]
-            maxsat = max(total,maxsat)
-        
+                dp[(ind,prev)] = max(cook,notcook)
 
-        return maxsat  if maxsat > 0 else 0
+            return dp[(ind,prev)]
+
+        return dfs(0,1)
