@@ -27,7 +27,6 @@ class Solution:
         for i in range(numCourses):
             ans.append(findPre(i))
 
-        print(ans)    
 
         result = []
         for u, v in queries:
